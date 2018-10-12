@@ -71,11 +71,11 @@ IF (${CMAKE_SYSTEM_NAME} MATCHES "Linux" AND REDFISH_BUILD_FUSE)
 ENDIF (${CMAKE_SYSTEM_NAME} MATCHES "Linux" AND REDFISH_BUILD_FUSE)
 
 # Find libjson-c
-find_path(JSON_C_INCLUDE_DIR "json/json.h")
-find_library(JSON_C_LIBRARY json)
+find_path(JSON_C_INCLUDE_DIR json.h HINTS "/usr/include" "/usr/include/json-c")
+find_library(JSON_C_LIBRARY json-c)
 IF(JSON_C_INCLUDE_DIR AND JSON_C_LIBRARY)
 ELSE(JSON_C_INCLUDE_DIR AND JSON_C_LIBRARY)
-    MESSAGE(FATAL_ERROR "Failed to find libjson-c. Try installing libjson-c with apt-get or yum, or install it manually from http://oss.metaparadigm.com/json-c/")
+    MESSAGE(FATAL_ERROR "Failed to find libjson-c. Try installing libjson-c with apt-get or yum, or install it manually.")
 ENDIF(JSON_C_INCLUDE_DIR AND JSON_C_LIBRARY)
 
 # Find libev
