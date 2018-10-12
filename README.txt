@@ -17,3 +17,5 @@ details.
 
 I have forked this project from https://github.com/cmccabe/redfish. I am modifying it as it seems to be 6~7 years old at this time.
 
+I have made some changes for it to overcome CMAKE errors. Still working on overcoming Make related challenges.
+
